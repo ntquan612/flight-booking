@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Booking</title>
+    <!-- css -->
+    <link rel="stylesheet" href="./build/tailwind.css">
+    <link rel="stylesheet" href="./build/app.css">
+    <!-- font awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap"
+        rel="stylesheet">
+    <!-- flowbite -->
+    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.1/dist/flowbite.min.css" />
+    <script src="https://unpkg.com/flowbite@1.4.1/dist/flowbite.js"></script>
+    <!-- swiper -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <!-- aos -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<!-- npx tailwindcss -i css/tailwind.css -o build/tailwind.css --watch -->
+
+<body class="bg-[#eee] dark:bg-[#141416]">
+    <label for="toggle" class="cursor-pointer toggle-switch">
+        <input type="checkbox" id="toggle" class="darkmode-input hidden">
+        <div
+            class="w-[100px] h-[40px] border border-[#ccc] rounded-full fixed right-5 bottom-5 z-50 p-[5px] transition-colors">
+            <div class="w-7 h-7 bg-[#ccc] rounded-full transition-transform darkmode-spinner">
+            </div>
+        </div>
+    </label>
+    <!-- menu -->
+    <nav class="h-[78px] w-full bg-c9 dark:bg-c2 leading-[78px] relative top-0 z-50">
+        <div class="sm:px-10 flex items-center justify-between text-black dark:text-white">
+            <a href="#" class=" text-2xl flex items-center">
+                <img src="./images/logo.png" alt="" class="w-14 h-10"> TripGuide
+            </a>
+            <div class="flex items-center justify-center">
+                <p class="cursor-pointer">USD</p>
+                <p class="cursor-pointer px-5">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/88/Flag_of_the_United_States_%28bordered%29.svg"
+                        alt="" class="w-6 h-6 mx-3">
+                </p>
+                <p class="cursor-pointer"><i class="fas fa-bell"></i></p>
+                <p class="cursor-pointer">
+                    <img src="https://source.unsplash.com/random" alt=""
+                        class="w-6 h-6 rounded-full ml-10 mr-3">
+                </p>
+                <p class="hidden sm:inline-block">
+                    <button id="dropdownDefault" data-dropdown-toggle="dropdown"
+                        class="focus:outline-none font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
+                        type="button">Delowar<svg class="ml-2 w-4 h-4" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 9l-7 7-7-7"></path>
+                        </svg></button>
+                    <!-- Dropdown menu -->
+                <div id="dropdown"
+                    class="hidden z-10 w-[150px] bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
+                    <ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
+                        aria-labelledby="dropdownDefault">
+                        <li class="hover:text-black">
+                            <a href="#" class="block py-2 px-4 hover:bg-gray-100 ">Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="#" class="block py-2 px-4 hover:bg-gray-100">Settings</a>
+                        </li>
+                        <li>
+                            <a href="#" class="block py-2 px-4 hover:bg-gray-100">Earnings</a>
+                        </li>
+                        <li>
+                            <a href="#" class="block py-2 px-4 hover:bg-gray-100">Sign
+                                out</a>
+                        </li>
+                    </ul>
+                </div>
+                </p>
+            </div>
+        </div>
+    </nav>
+    <!-- menu -->
+
+    <!-- banner -->
+    <div class="w-full sm:h-[656px] h-[375px] relative">
+        <img src="https://tripswithtykes.com/wp-content/uploads/2015/06/Southwest-Airlines-Plane-at-Sunset.jpg.webp"
+            alt="" class="w-full h-full object-cover rounded-none">
+
+        <div class="lg:ml-[135px] text-center text-white absolute top-[50px] sm:top-[134px] px-3">
+            <div class="lg:text-left">
+                <h1 class="text-[32px] sm:text-[64px] font-bold lg:max-w-2xl" data-aos="fade-down">
+                    Amazing Flight To Switzerland
+                </h1>
+                <p class="text-[16px] sm:text-[32px]" data-aos="fade-up">Find and book a great
+                    experience</p>
+            </div>
+        </div>
+
+    </div>
+    <!-- banner -->
+
+    <!-- search -->
+    <div class="max-w-[1170px] h-auto sm:m-auto bg-c9 dark:bg-c2 rounded-lg top-[-155px] sm:top-[-100px] mx-3 relative shadow-lg shadow-gray-700 dark:shadow-gray-700 border-none"
+        data-aos="fade-down">
+        <div class="p-0 sm:p-2">
+            <div class="mb-4 border-b border-gray-200 text-xl">
+                <ul class="flex flex-wrap -mb-px font-medium text-center sm:text-2xl" id="myTab"
+                    data-tabs-toggle="#myTabContent" role="tablist">
+                    <li class="mr-2" role="presentation">
+                        <button
+                            class="text-[14px] inline-block p-4 rounded-t-lg border-b-2 text-blue-600 hover:text-blue-600 dark:text-blue-500 dark:hover:text-blue-400 border-blue-600 dark:border-blue-500"
+                            id="profile-tab" data-tabs-target="#profile" type="button" role="tab"
+                            aria-controls="profile" aria-selected="true">
+                            <i class="fas fa-fighter-jet"></i> Flight</button>
+                    </li>
+                    <li class="mr-2" role="presentation">
+                        <button
+                            class="text-[14px] inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 text-gray-500 dark:text-gray-400 border-gray-100 dark: border border-gray-700"
+                            id="dashboard-tab" data-tabs-target="#dashboard" type="button"
+                            role="tab" aria-controls="dashboard" aria-selected="false">
+                            <i class="fas fa-bed"></i> Hotel</button>
+                    </li>
+                    <li class="mr-2" role="presentation">
+                        <button
+                            class="text-[14px] inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 text-gray-500 dark:text-gray-400 border-gray-100 dark:border-gray-700"
+                            id="settings-tab" data-tabs-target="#settings" type="button" role="tab"
+                            aria-controls="settings" aria-selected="false">
+                            <i class="fas fa-car"></i> Car</button>
+                    </li>
+                </ul>
+            </div>
+            <div id="myTabContent">
+                <div class="p-4 rounded-lg" id="profile" role="tabpanel"
+                    aria-labelledby="profile-tab">
+                    <div class="flex items-center justify-between flex-wrap">
+                        <div class="flex items-center justify-between flex-wrap">
+                            <div
+                                class="bg-[#F4F5F7] dark:bg-[#4A4E54] text-c1 dark:text-c9 rounded px-3 py-2 h-[70px] w-[100%] sm:w-[260px] my-1 sm:mr-3">
+                                <h3 class="font-bold text-[18px]">Leaving From</h3>
+                                <span class="text-[16px] text-c4">Where are you from ?</span>
+                            </div>
+                            <div
+                                class="bg-[#F4F5F7] dark:bg-[#4A4E54] text-c1 dark:text-c9 rounded px-3 py-2 h-[70px] w-[100%] sm:w-[200px] my-1 sm:mr-3">
+                                <h3 class="font-bold text-[18px]">Going to</h3>
+                                <span class="text-[16px] text-c4">Going to</span>
+                            </div>
+                            <div
+                                class="bg-[#F4F5F7] dark:bg-[#4A4E54] text-c1 dark:text-c9 rounded px-3 py-2 h-[70px] w-[49%] sm:w-[200px] my-1 sm:mr-3">
+                                <h3 class="font-bold text-[18px]">Check in</h3>
+                                <span class="text-[16px] text-c4">Add date</span>
+                            </div>
+                            <div
+                                class="bg-[#F4F5F7] dark:bg-[#4A4E54] text-c1 dark:text-c9 rounded px-3 py-2 h-[70px] w-[49%] sm:w-[200px] my-1 sm:mr-3">
+                                <h3 class="font-bold text-[18px]">Check out</h3>
+                                <span class="text-[16px] text-c4">Add date</span>
+                            </div>
+                        </div>
+                        <button
+                            class="bg-blue3B7 hover:bg-blue-700 text-white rounded-lg px-3 py-2 h-[70px] w-[100%] sm:w-[152px] my-1 font-bold">
+                            Search
+                        </button>
+                    </div>
+                </div>
+                <div class="hidden p-4 rounded-lg" id="dashboard" role="tabpanel"
+                    aria-labelledby="dashboard-tab">
+                    <p class="text-lg text-gray-500 dark:text-gray-400">This is some placeholder
+                        content the <strong
+                            class="font-medium text-gray-800 dark:text-white">Dashboard tab's
+                            associated content</strong>. Clicking another tab will toggle the
+                        visibility of this one for the next. The tab JavaScript swaps classes to
+                        control the content visibility and stylingb.</p>
+                </div>
+                <div class="hidden p-4 rounded-lg" id="settings" role="tabpanel"
+                    aria-labelledby="settings-tab">
+                    <p class="text-lg text-gray-500 dark:text-gray-400">This is some placeholder
+                        content the <strong
+                            class="font-medium text-gray-800 dark:text-white">Settings tab's
+                            associated content</strong>. Clicking another tab will toggle the
+                        visibility of this one for the next. The tab JavaScript swaps classes to
+                        control the content visibility and stylingc.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- search -->
+
+    <div class="max-w-[1210px] h-auto m-auto p-5 sm:p-0">
+
+        <!-- Search a best place in the world -->
+        <section class="text-c1 dark:text-c9 mb-[100px]">
+            <div class="text-center m-auto">
+                <h2 class=" font-bold text-[42px] sm:text-[48px] max-w-[600px] m-auto"
+                    data-aos="fade-down">Search a best
+                    place
+                    in the world
+                </h2>
+                <p class="text-c4 text-[14px] sm:text-[16px] max-w-[600px] m-auto px-5"
+                    data-aos="fade-down">
+                    Whether you’re looking for places for a vacation. We are here to Guide you about
+                    the details you need to check in and ease your trips in advance
+                </p>
+            </div>
+            <div class="grid-layout hidden-scroll sm:flex sm:flex-wrap mt-10 gap-y-6 mx-3 sm:mx-0">
+                <div class="box-border border border-c3 w-[270px] h-[205px] pl-8 pt-8 rounded-lg scroll-snap-start"
+                    data-aos="fade-right">
+                    <div class="w-[70px] h-[70px]">
+                        <img src="https://storage.googleapis.com/allindonesiatoursim/2017/05/Batu.jpg"
+                            alt="" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="pt-5 text-[22px]">Batu, East Java</h3>
+                    <p class="text-[#777E90] text-[14px]">86 Destinations</p>
+                </div>
+                <div class="box-border border border-c3 w-[270px] h-[205px] pl-8 pt-8 rounded-lg scroll-snap-start"
+                    data-aos="fade-right">
+                    <div class="w-[70px] h-[70px]">
+                        <img src="https://local-bali.com/wp-content/uploads/2020/04/pura-tanah-lot-6-1024x569.jpg"
+                            alt="" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="pt-5 text-[22px]">Kuta</h3>
+                    <p class="text-[#777E90] text-[14px]">86 Destinations</p>
+                </div>
+                <div class="box-border border border-c3 w-[270px] h-[205px] pl-8 pt-8 rounded-lg scroll-snap-start"
+                    data-aos="fade-left">
+                    <div class="w-[70px] h-[70px]">
+                        <img src="https://media-cdn.tripadvisor.com/media/photo-s/06/8a/57/a4/surabaya.jpg"
+                            alt="" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="pt-5 text-[22px]">Surabaya, East Java</h3>
+                    <p class="text-[#777E90] text-[14px]">86 Destinations</p>
+                </div>
+                <div class="box-border border border-c3 w-[270px] h-[205px] pl-8 pt-8 rounded-lg scroll-snap-start"
+                    data-aos="fade-left">
+                    <div class="w-[70px] h-[70px]">
+                        <img src="https://www.indonesia-tourism.com/east-java/bromo/images/jodipan_village.jpg"
+                            alt="" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="pt-5 text-[22px]">Malang, East Java</h3>
+                    <p class="text-[#777E90] text-[14px]">86 Destinations</p>
+                </div>
+                <div class="box-border border border-c3 w-[270px] h-[205px] pl-8 pt-8 rounded-lg scroll-snap-start"
+                    data-aos="fade-right">
+                    <div class="w-[70px] h-[70px]">
+                        <img src="https://i0.wp.com/globerovers.com/wp-content/uploads/2019/02/Terraces-Dieng-Plateau-Java-Indonesia.jpg?resize=800%2C532&ssl=1"
+                            alt="" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="pt-5 text-[22px]">Dieng, Central Java</h3>
+                    <p class="text-[#777E90] text-[14px]">86 Destinations</p>
+                </div>
+                <div class="box-border border border-c3 w-[270px] h-[205px] pl-8 pt-8 rounded-lg scroll-snap-start"
+                    data-aos="fade-right">
+                    <div class="w-[70px] h-[70px]">
+                        <img src="https://www.vietnambooking.com/wp-content/uploads/2018/03/du-lich-bali-5-3-2018-2-550x355.jpg"
+                            alt="" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="pt-5 text-[22px]">Nusa Dua, Lombok</h3>
+                    <p class="text-[#777E90] text-[14px]">86 Destinations</p>
+                </div>
+                <div class="box-border border border-c3 w-[270px] h-[205px] pl-8 pt-8 rounded-lg scroll-snap-start"
+                    data-aos="fade-left">
+                    <div class="w-[70px] h-[70px]">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Gedung_Sate_Bandung.jpg"
+                            alt="" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="pt-5 text-[22px]">Bandung, West Java</h3>
+                    <p class="text-[#777E90] text-[14px]">86 Destinations</p>
+                </div>
+                <div class="box-border border border-c3 w-[270px] h-[205px] pl-8 pt-8 rounded-lg scroll-snap-start"
+                    data-aos="fade-left">
+                    <div class="w-[70px] h-[70px]">
+                        <img src="http://indonesia-tourism.com/blog/wp-content/uploads/2010/11/10.jpg"
+                            alt="" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="pt-5 text-[22px]">Wakatobi, Sumatera</h3>
+                    <p class="text-[#777E90] text-[14px]">86 Destinations</p>
+                </div>
+            </div>
+
+        </section>
+        <!-- Search a best place in the world -->
+
+        <!-- Featured Destinations -->
+        <section class="text-c1 dark:text-c9 mb-[100px]">
+            <div class="text-center">
+                <h2 class="sm:text-left text-[42px] sm:text-[48px]" data-aos="fade-down">
+                    Featured Destinations
+                </h2>
+                <p class="text-c4 sm:text-left text-[16px] sm:text-[14px] pb-5"
+                    data-aos="fade-down">
+                    Popular destinations open to visitors from Indonesia
+                </p>
+            </div>
+            <div class="sm:layout">
+                <div class="layout-item relative overflow-hidden rounded-[10px]"
+                    data-aos="fade-right">
+                    <img src="https://cdn.pixabay.com/photo/2022/01/26/05/56/stairs-6968125_960_720.jpg"
+                        class="layout-image mb-5 transition-all ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
+                    <span
+                        class="absolute top-0 rounded-full text-center text-[18px] py-[2px] bg-white w-[68px] h-[28px] text-[#FF543D] mt-5 ml-5">3.5</span>
+                    <div class="absolute bottom-0 mb-5 ml-5">
+                        <h2 class="text-white text-[30px] sm:text-[40px] font-bold">Barcelona Tour
+                        </h2>
+                        <div class="flex flex-wrap items-center justify-start">
+                            <img class="inline-block h-10 w-10 rounded-full"
+                                src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                alt="" />
+                            <p class="text-c9 ml-5">196 Activities</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="layout-item relative overflow-hidden rounded-[10px]"
+                    data-aos="fade-left">
+                    <img src="https://cdn.pixabay.com/photo/2013/04/11/19/46/building-102840_960_720.jpg"
+                        class="layout-image mb-5 transition-all ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
+                    <span
+                        class="absolute top-0 rounded-full text-center text-[18px] py-[2px] bg-white w-[68px] h-[28px] text-[#FF543D] mt-5 ml-5">3.5</span>
+                    <div class="absolute bottom-0 mb-5 ml-5">
+                        <h2 class="text-white font-bold text-[30px] sm:text-[40px]">
+                            Australia Tour</h2>
+                        <div class="flex flex-wrap items-center justify-start">
+                            <img class="inline-block h-10 w-10 rounded-full"
+                                src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                alt="" />
+                            <p class="text-c9 ml-5">196 Activities</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="layout-item relative overflow-hidden rounded-[10px]" data-aos="fade-up">
+                    <img src="https://cdn.pixabay.com/photo/2016/08/11/23/48/mountains-1587287_960_720.jpg"
+                        class="layout-image mb-5 transition-all ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
+                    <span
+                        class="absolute top-0 rounded-full text-center text-[18px] py-[2px] bg-white w-[68px] h-[28px] text-[#FF543D] mt-5 ml-5">3.5</span>
+                    <div class="absolute bottom-0 mb-5 ml-5">
+                        <h2 class="text-white font-bold text-[30px] sm:text-[40px]">
+                            London, United State</h2>
+                        <div class="flex flex-wrap items-center justify-start">
+                            <img class="inline-block h-10 w-10 rounded-full"
+                                src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                alt="" />
+                            <p class="text-c9 ml-5">196 Activities</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="layout-item relative overflow-hidden rounded-[10px]" data-aos="fade-up">
+                    <img src="https://cdn.pixabay.com/photo/2014/10/07/13/48/mountain-477832_960_720.jpg"
+                        class="layout-image mb-5 transition-all ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
+                    <span
+                        class="absolute top-0 rounded-full text-center text-[18px] py-[2px] bg-white w-[68px] h-[28px] text-[#FF543D] mt-5 ml-5">3.5</span>
+                    <div class="absolute bottom-0 mb-5 ml-5">
+                        <h2 class="text-white font-bold text-[30px] sm:text-[40px]">
+                            Australia Tour</h2>
+                        <div class="flex flex-wrap items-center justify-start">
+                            <img class="inline-block h-10 w-10 rounded-full"
+                                src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                alt="" />
+                            <p class="text-c9 ml-5">196 Activities</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="layout-item relative overflow-hidden rounded-[10px]"
+                    data-aos="fade-left">
+                    <img src="https://cdn.pixabay.com/photo/2016/11/14/03/43/kimono-1822520_960_720.jpg"
+                        class="layout-image mb-5 transition-all ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
+                    <span
+                        class="absolute top-0 rounded-full text-center text-[18px] py-[2px] bg-white w-[68px] h-[28px] text-[#FF543D] mt-5 ml-5">3.5</span>
+                    <div class="absolute bottom-0 mb-5 ml-5">
+                        <h2 class="text-white font-bold text-[30px] sm:text-[40px]">
+                            Japan Tour</h2>
+                        <div class="flex flex-wrap items-center justify-start">
+                            <img class="inline-block h-10 w-10 rounded-full"
+                                src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                alt="" />
+                            <p class="text-c9 ml-5">196 Activities</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="layout-item relative overflow-hidden rounded-[10px]"
+                    data-aos="fade-left">
+                    <img src="https://cdn.pixabay.com/photo/2017/01/28/02/24/japan-2014619_960_720.jpg"
+                        class="layout-image mb-5 transition-all ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
+                    <span
+                        class="absolute top-0 rounded-full text-center text-[18px] py-[2px] bg-white w-[68px] h-[28px] text-[#FF543D] mt-5 ml-5">3.5</span>
+                    <div class="absolute bottom-0 mb-5 ml-5">
+                        <h2 class="text-white font-bold text-[30px] sm:text-[40px]">
+                            Japan Tour</h2>
+                        <div class="flex flex-wrap items-center justify-start">
+                            <img class="inline-block h-10 w-10 rounded-full"
+                                src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                alt="" />
+                            <p class="text-c9 ml-5">196 Activities</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Featured Destinations -->
+
+    </div>
+
+    <!-- Trending cites -->
+    <div class="bg-[#F7F7F7] dark:bg-c1 text-c1 dark:text-c9 h-auto mb-[100px]">
+        <div class="max-w-[1210px] h-auto m-auto p-5 sm:p-0">
+            <div class="text-center leading-[60px] py-10">
+                <h2 class="text-[42px] sm:text-[48px]" data-aos="fade-right">
+                    Trending cites
+                </h2>
+                <p class="text-c4 text-[24px] sm:text-[20px] pb-5" data-aos="fade-left">
+                    The most searched for cities on TripGuide
+                </p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-y-11 gap-x-8 py-10">
+                <div class="max-w-[560px] bg-c9 dark:bg-c1 rounded-lg flex flex-wrap items-center justify-start p-5 shadow-lg hover:shadow-gray-500 hover:scale-[1.02] transition-all border border-gray-700"
+                    data-aos="fade-up">
+                    <div class="sm:w-[160px] w-[100%] h-[168px]">
+                        <img src="https://content.r9cdn.net/rimg/dimg/f6/a7/9b99082b-city-29645-166c0b3c28a.jpg?crop=true&width=1366&height=768&xhint=2567&yhint=1862"
+                            alt="" class="w-full h-full object-cover">
+                    </div>
+                    <div class="leading-10 m-auto text-center">
+                        <h3 class="text-24px font-bold sm:text-left">Flight to Manila
+                        </h3>
+                        <p class="text-c5 sm:text-left"><i class="fas fa-star text-yellow-400"></i>
+                            4.91 <span>(147)</span></p>
+                        <p class="text-[25px] sm:text-left">$250.00/<span
+                                class="text-[16px]">night</span>
+                        </p>
+                        <button
+                            class="text-c9 bg-blue3B7 hover:bg-blue-700 rounded px-10 py-1 sm:text-left">Book
+                            Now</button>
+                    </div>
+                </div>
+                <div class="max-w-[560px] bg-c9 dark:bg-c1 rounded-lg flex flex-wrap items-center justify-start p-5 shadow-lg hover:shadow-gray-500 hover:scale-[1.02] transition-all  border border-gray-700"
+                    data-aos="fade-up">
+                    <div class="sm:w-[160px] w-[100%] h-[168px]">
+                        <img src="https://content.r9cdn.net/rimg/dimg/f6/a7/9b99082b-city-29645-166c0b3c28a.jpg?crop=true&width=1366&height=768&xhint=2567&yhint=1862"
+                            alt="" class="w-full h-full object-cover">
+                    </div>
+                    <div class="leading-10 m-auto text-center ">
+                        <h3 class="text-24px font-bold sm:text-left">Flight to Manila
+                        </h3>
+                        <p class="text-c5 sm:text-left"><i class="fas fa-star text-yellow-400"></i>
+                            4.91 <span>(147)</span></p>
+                        <p class="text-[25px] sm:text-left">$250.00/<span
+                                class="text-[16px]">night</span>
+                        </p>
+                        <button
+                            class="text-c9 bg-blue3B7 hover:bg-blue-700 rounded px-10 py-1 sm:text-left">Book
+                            Now</button>
+                    </div>
+                </div>
+                <div class="max-w-[560px] bg-c9 dark:bg-c1 rounded-lg flex flex-wrap items-center justify-start p-5 shadow-lg hover:shadow-gray-500 hover:scale-[1.02] transition-all  border border-gray-700"
+                    data-aos="fade-up">
+                    <div class="sm:w-[160px] w-[100%] h-[168px]">
+                        <img src="https://content.r9cdn.net/rimg/dimg/f6/a7/9b99082b-city-29645-166c0b3c28a.jpg?crop=true&width=1366&height=768&xhint=2567&yhint=1862"
+                            alt="" class="w-full h-full object-cover">
+                    </div>
+                    <div class="leading-10 m-auto text-center ">
+                        <h3 class="text-24px font-bold sm:text-left">Flight to Manila
+                        </h3>
+                        <p class="text-c5 sm:text-left"><i class="fas fa-star text-yellow-400"></i>
+                            4.91 <span>(147)</span></p>
+                        <p class="text-[25px] sm:text-left">$250.00/<span
+                                class="text-[16px]">night</span>
+                        </p>
+                        <button
+                            class="text-c9 bg-blue3B7 hover:bg-blue-700 rounded px-10 py-1 sm:text-left">Book
+                            Now</button>
+                    </div>
+                </div>
+                <div class="max-w-[560px] bg-c9 dark:bg-c1 rounded-lg flex flex-wrap items-center justify-start p-5 shadow-lg hover:shadow-gray-500 hover:scale-[1.02] transition-all  border border-gray-700"
+                    data-aos="fade-up">
+                    <div class="sm:w-[160px] w-[100%] h-[168px]">
+                        <img src="https://content.r9cdn.net/rimg/dimg/f6/a7/9b99082b-city-29645-166c0b3c28a.jpg?crop=true&width=1366&height=768&xhint=2567&yhint=1862"
+                            alt="" class="w-full h-full object-cover">
+                    </div>
+                    <div class="leading-10 m-auto text-center ">
+                        <h3 class="text-24px font-bold sm:text-left">Flight to Manila
+                        </h3>
+                        <p class="text-c5 sm:text-left"><i class="fas fa-star text-yellow-400"></i>
+                            4.91 <span>(147)</span></p>
+                        <p class="text-[25px] sm:text-left">$250.00/<span
+                                class="text-[16px]">night</span>
+                        </p>
+                        <button
+                            class="text-c9 bg-blue3B7 hover:bg-blue-700 rounded px-10 py-1 sm:text-left">Book
+                            Now</button>
+                    </div>
+                </div>
+                <div class="max-w-[560px] bg-c9 dark:bg-c1 rounded-lg flex flex-wrap items-center justify-start p-5 shadow-lg hover:shadow-gray-500 hover:scale-[1.02] transition-all border border-gray-700"
+                    data-aos="fade-up">
+                    <div class="sm:w-[160px] w-[100%] h-[168px]">
+                        <img src="https://content.r9cdn.net/rimg/dimg/f6/a7/9b99082b-city-29645-166c0b3c28a.jpg?crop=true&width=1366&height=768&xhint=2567&yhint=1862"
+                            alt="" class="w-full h-full object-cover">
+                    </div>
+                    <div class="leading-10 m-auto text-center ">
+                        <h3 class="text-24px font-bold sm:text-left">Flight to Manila
+                        </h3>
+                        <p class="text-c5 sm:text-left"><i class="fas fa-star text-yellow-400"></i>
+                            4.91 <span>(147)</span></p>
+                        <p class="text-[25px] sm:text-left">$250.00/<span
+                                class="text-[16px]">night</span>
+                        </p>
+                        <button
+                            class="text-c9 bg-blue3B7 hover:bg-blue-700 rounded px-10 py-1 sm:text-left">Book
+                            Now</button>
+                    </div>
+                </div>
+                <div class="max-w-[560px] bg-c9 dark:bg-c1 rounded-lg flex flex-wrap items-center justify-start p-5 shadow-lg hover:shadow-gray-500 hover:scale-[1.02] transition-all border border-gray-700"
+                    data-aos="fade-up">
+                    <div class="sm:w-[160px] w-[100%] h-[168px]">
+                        <img src="https://content.r9cdn.net/rimg/dimg/f6/a7/9b99082b-city-29645-166c0b3c28a.jpg?crop=true&width=1366&height=768&xhint=2567&yhint=1862"
+                            alt="" class="w-full h-full object-cover">
+                    </div>
+                    <div class="leading-10 m-auto text-center ">
+                        <h3 class="text-24px font-bold sm:text-left">Flight to Manila
+                        </h3>
+                        <p class="text-c5 sm:text-left"><i class="fas fa-star text-yellow-400"></i>
+                            4.91 <span>(147)</span></p>
+                        <p class="text-[25px] sm:text-left">$250.00/<span
+                                class="text-[16px]">night</span>
+                        </p>
+                        <button
+                            class="text-c9 bg-blue3B7 hover:bg-blue-700 rounded px-10 py-1 sm:text-left">Book
+                            Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Trending cites -->
+
+    <!-- Explore nearby -->
+    <section class="text-white max-w-[1210px] h-auto m-auto p-5 sm:p-0 ">
+        <div class="text-center text-c1 dark:text-c9">
+            <h2 class="sm:text-left text-[40px] sm:text-[42px]" data-aos="fade-down">
+                Explore nearby
+            </h2>
+            <p class="text-c4 sm:text-left text-[18px] pb-5" data-aos="fade-down">
+                10,788 beautiful places to go
+            </p>
+        </div>
+        <div class="flex flex-wrap items-center justify-center gap-7" data-aos="fade-up">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <a href="#" class="shadow-lg shadow-indigo-500/40 max-w-[270px] h-auto">
+                            <div class="w-full h-[245px] relative">
+                                <img src="https://media.npr.org/assets/img/2021/10/06/gettyimages-1302813215_wide-6c48e5a6aff547d2703693450c4805978de47435-s1100-c50.jpg"
+                                    alt=""
+                                    class="w-full h-full object-cover rounded-none rounded-t-lg">
+                                <div class="absolute top-0 mt-5 ml-5 text-c9">
+                                    <span
+                                        class="bg-c2 inline-block h-9 w-9 rounded-full text-center pt-[6px] text-[14px] mr-3 bg-opacity-75">
+                                        5 <i class="fas fa-star text-yellow-400"></i>
+                                    </span>
+                                    <span
+                                        class="bg-c2 inline-block h-9 w-16 rounded-full text-center pt-[6px] text-[14px] bg-opacity-75">$420</span>
+                                </div>
+                            </div>
+                            <div class="leading-loose bg-c2 rounded-b-lg p-4">
+                                <h3 class="text-c7 font-medium text-[24px]">Cancun flight</h3>
+                                <span class="text-c6 text-[16px]">City, House</span>
+                                <p class="text-c5"><i class="fas fa-map-marker-alt pr-3"></i>
+                                    Turkey,
+                                    Mamaris
+                                </p>
+                                <p class="text-c5"><i class="fas fa-house pr-3"></i> Rooms
+                                    available:
+                                    <strong>375</strong>
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="shadow-lg shadow-indigo-500/40 max-w-[270px] h-auto">
+                            <div class="w-full h-[245px] relative">
+                                <img src="https://media.npr.org/assets/img/2021/10/06/gettyimages-1302813215_wide-6c48e5a6aff547d2703693450c4805978de47435-s1100-c50.jpg"
+                                    alt=""
+                                    class="w-full h-full object-cover rounded-none rounded-t-lg">
+                                <div class="absolute top-0 mt-5 ml-5">
+                                    <span
+                                        class="bg-c2 inline-block h-9 w-9 rounded-full text-center pt-[6px] text-[14px] mr-3 bg-opacity-75">
+                                        5 <i class="fas fa-star text-yellow-400"></i>
+                                    </span>
+                                    <span
+                                        class="bg-c2 inline-block h-9 w-16 rounded-full text-center pt-[6px] text-[14px] bg-opacity-75">$420</span>
+                                </div>
+                            </div>
+                            <div class="leading-loose bg-c2 rounded-b-lg p-4">
+                                <h3 class="text-c7 font-medium text-[24px]">Cancun flight</h3>
+                                <span class="text-c6 text-[16px]">City, House</span>
+                                <p class="text-c5"><i class="fas fa-map-marker-alt pr-3"></i>
+                                    Turkey,
+                                    Mamaris
+                                </p>
+                                <p class="text-c5"><i class="fas fa-house pr-3"></i> Rooms
+                                    available:
+                                    <strong>375</strong>
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="shadow-lg shadow-indigo-500/40 max-w-[270px] h-auto">
+                            <div class="w-full h-[245px] relative">
+                                <img src="https://media.npr.org/assets/img/2021/10/06/gettyimages-1302813215_wide-6c48e5a6aff547d2703693450c4805978de47435-s1100-c50.jpg"
+                                    alt=""
+                                    class="w-full h-full object-cover rounded-none rounded-t-lg">
+                                <div class="absolute top-0 mt-5 ml-5">
+                                    <span
+                                        class="bg-c2 inline-block h-9 w-9 rounded-full text-center pt-[6px] text-[14px] mr-3 bg-opacity-75">
+                                        5 <i class="fas fa-star text-yellow-400"></i>
+                                    </span>
+                                    <span
+                                        class="bg-c2 inline-block h-9 w-16 rounded-full text-center pt-[6px] text-[14px] bg-opacity-75">$420</span>
+                                </div>
+                            </div>
+                            <div class="leading-loose bg-c2 rounded-b-lg p-4">
+                                <h3 class="text-c7 font-medium text-[24px]">Cancun flight</h3>
+                                <span class="text-c6 text-[16px]">City, House</span>
+                                <p class="text-c5"><i class="fas fa-map-marker-alt pr-3"></i>
+                                    Turkey,
+                                    Mamaris
+                                </p>
+                                <p class="text-c5"><i class="fas fa-house pr-3"></i> Rooms
+                                    available:
+                                    <strong>375</strong>
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="shadow-lg shadow-indigo-500/40 max-w-[270px] h-auto">
+                            <div class="w-full h-[245px] relative">
+                                <img src="https://media.npr.org/assets/img/2021/10/06/gettyimages-1302813215_wide-6c48e5a6aff547d2703693450c4805978de47435-s1100-c50.jpg"
+                                    alt=""
+                                    class="w-full h-full object-cover rounded-none rounded-t-lg">
+                                <div class="absolute top-0 mt-5 ml-5">
+                                    <span
+                                        class="bg-c2 inline-block h-9 w-9 rounded-full text-center pt-[6px] text-[14px] mr-3 bg-opacity-75">
+                                        5 <i class="fas fa-star text-yellow-400"></i>
+                                    </span>
+                                    <span
+                                        class="bg-c2 inline-block h-9 w-16 rounded-full text-center pt-[6px] text-[14px] bg-opacity-75">$420</span>
+                                </div>
+                            </div>
+                            <div class="leading-loose bg-c2 rounded-b-lg p-4">
+                                <h3 class="text-c7 font-medium text-[24px]">Cancun flight</h3>
+                                <span class="text-c6 text-[16px]">City, House</span>
+                                <p class="text-c5"><i class="fas fa-map-marker-alt pr-3"></i>
+                                    Turkey,
+                                    Mamaris
+                                </p>
+                                <p class="text-c5"><i class="fas fa-house pr-3"></i> Rooms
+                                    available:
+                                    <strong>375</strong>
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="shadow-lg shadow-indigo-500/40 max-w-[270px] h-auto">
+                            <div class="w-full h-[245px] relative">
+                                <img src="https://media.npr.org/assets/img/2021/10/06/gettyimages-1302813215_wide-6c48e5a6aff547d2703693450c4805978de47435-s1100-c50.jpg"
+                                    alt=""
+                                    class="w-full h-full object-cover rounded-none rounded-t-lg">
+                                <div class="absolute top-0 mt-5 ml-5">
+                                    <span
+                                        class="bg-c2 inline-block h-9 w-9 rounded-full text-center pt-[6px] text-[14px] mr-3 bg-opacity-75">
+                                        5 <i class="fas fa-star text-yellow-400"></i>
+                                    </span>
+                                    <span
+                                        class="bg-c2 inline-block h-9 w-16 rounded-full text-center pt-[6px] text-[14px] bg-opacity-75">$420</span>
+                                </div>
+                            </div>
+                            <div class="leading-loose bg-c2 rounded-b-lg p-4">
+                                <h3 class="text-c7 font-medium text-[24px]">Cancun flight</h3>
+                                <span class="text-c6 text-[16px]">City, House</span>
+                                <p class="text-c5"><i class="fas fa-map-marker-alt pr-3"></i>
+                                    Turkey,
+                                    Mamaris
+                                </p>
+                                <p class="text-c5"><i class="fas fa-house pr-3"></i> Rooms
+                                    available:
+                                    <strong>375</strong>
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="shadow-lg shadow-indigo-500/40 max-w-[270px] h-auto">
+                            <div class="w-full h-[245px] relative">
+                                <img src="https://media.npr.org/assets/img/2021/10/06/gettyimages-1302813215_wide-6c48e5a6aff547d2703693450c4805978de47435-s1100-c50.jpg"
+                                    alt=""
+                                    class="w-full h-full object-cover rounded-none rounded-t-lg">
+                                <div class="absolute top-0 mt-5 ml-5">
+                                    <span
+                                        class="bg-c2 inline-block h-9 w-9 rounded-full text-center pt-[6px] text-[14px] mr-3 bg-opacity-75">
+                                        5 <i class="fas fa-star text-yellow-400"></i>
+                                    </span>
+                                    <span
+                                        class="bg-c2 inline-block h-9 w-16 rounded-full text-center pt-[6px] text-[14px] bg-opacity-75">$420</span>
+                                </div>
+                            </div>
+                            <div class="leading-loose bg-c2 rounded-b-lg p-4">
+                                <h3 class="text-c7 font-medium text-[24px]">Cancun flight</h3>
+                                <span class="text-c6 text-[16px]">City, House</span>
+                                <p class="text-c5"><i class="fas fa-map-marker-alt pr-3"></i>
+                                    Turkey,
+                                    Mamaris
+                                </p>
+                                <p class="text-c5"><i class="fas fa-house pr-3"></i> Rooms
+                                    available:
+                                    <strong>375</strong>
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="shadow-lg shadow-indigo-500/40 max-w-[270px] h-auto">
+                            <div class="w-full h-[245px] relative">
+                                <img src="https://media.npr.org/assets/img/2021/10/06/gettyimages-1302813215_wide-6c48e5a6aff547d2703693450c4805978de47435-s1100-c50.jpg"
+                                    alt=""
+                                    class="w-full h-full object-cover rounded-none rounded-t-lg">
+                                <div class="absolute top-0 mt-5 ml-5">
+                                    <span
+                                        class="bg-c2 inline-block h-9 w-9 rounded-full text-center pt-[6px] text-[14px] mr-3 bg-opacity-75">
+                                        5 <i class="fas fa-star text-yellow-400"></i>
+                                    </span>
+                                    <span
+                                        class="bg-c2 inline-block h-9 w-16 rounded-full text-center pt-[6px] text-[14px] bg-opacity-75">$420</span>
+                                </div>
+                            </div>
+                            <div class="leading-loose bg-c2 rounded-b-lg p-4">
+                                <h3 class="text-c7 font-medium text-[24px]">Cancun flight</h3>
+                                <span class="text-c6 text-[16px]">City, House</span>
+                                <p class="text-c5"><i class="fas fa-map-marker-alt pr-3"></i>
+                                    Turkey,
+                                    Mamaris
+                                </p>
+                                <p class="text-c5"><i class="fas fa-house pr-3"></i> Rooms
+                                    available:
+                                    <strong>375</strong>
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="shadow-lg shadow-indigo-500/40 max-w-[270px] h-auto">
+                            <div class="w-full h-[245px] relative">
+                                <img src="https://media.npr.org/assets/img/2021/10/06/gettyimages-1302813215_wide-6c48e5a6aff547d2703693450c4805978de47435-s1100-c50.jpg"
+                                    alt=""
+                                    class="w-full h-full object-cover rounded-none rounded-t-lg">
+                                <div class="absolute top-0 mt-5 ml-5">
+                                    <span
+                                        class="bg-c2 inline-block h-9 w-9 rounded-full text-center pt-[6px] text-[14px] mr-3 bg-opacity-75">
+                                        5 <i class="fas fa-star text-yellow-400"></i>
+                                    </span>
+                                    <span
+                                        class="bg-c2 inline-block h-9 w-16 rounded-full text-center pt-[6px] text-[14px] bg-opacity-75">$420</span>
+                                </div>
+                            </div>
+                            <div class="leading-loose bg-c2 rounded-b-lg p-4">
+                                <h3 class="text-c7 font-medium text-[24px]">Cancun flight</h3>
+                                <span class="text-c6 text-[16px]">City, House</span>
+                                <p class="text-c5"><i class="fas fa-map-marker-alt pr-3"></i>
+                                    Turkey,
+                                    Mamaris
+                                </p>
+                                <p class="text-c5"><i class="fas fa-house pr-3"></i> Rooms
+                                    available:
+                                    <strong>375</strong>
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+    <!-- Explore nearby -->
+
+    <!-- Get our pro offers -->
+    <div class="max-w-[1210px] h-auto m-auto p-5 sm:p-0 relative bottom-[-100px]">
+        <div
+            class="bg-blue3B7 rounded-lg max-w-[1170px] text-white p-5 flex flex-wrap items-center justify-around">
+            <div class="max-w-[371px]">
+                <h1 class="font-bold text-[20px] sm:text-[40px]">Get our pro offers</h1>
+                <p class="py-5 text-[12px] sm:text-[16px]">Create a visual identity for your
+                    company, and an overall brand
+                </p>
+            </div>
+            <div class="w-[488px] relative">
+                <input type="text" placeholder="Type your email here"
+                    class="w-[100%] h-[71px] text-c4 border-none outline-none rounded-lg">
+                <button
+                    class="bg-c3 px-5 py-3 absolute right-[10px] mt-[10px] rounded-lg">Subscribe</button>
+            </div>
+        </div>
+    </div>
+    <!-- Get our pro offers -->
+
+    <footer class="bg-[#F4F5F6] dark:bg-c2 text-c1 dark:text-c9">
+        <div class="max-w-[1210px] h-auto m-auto pt-16 sm:p-0">
+            <div class="flex flex-wrap items-start justify-between p-10">
+                <div class="sm:w-[25%] w-[100%] border-b-[2px] border-white sm:border-[0px] py-3 ">
+                    <a href="#" class=" text-2xl flex items-center">
+                        <img src="./images/logo.png" alt="" class="w-14 h-10"> TripGuide
+                    </a>
+                    <p class="max-w-[254px] my-5 text-c3 dark:text-c5">This is the team that
+                        specializes in
+                        making sure in the find it a your interior looks cool</p>
+                </div>
+                <div
+                    class="sm:w-[25%] w-[100%] pl-0 sm:pl-32 border-b-[2px] border-white sm:border-0 py-3">
+                    <h3 class="text-[24px]">Services</h3>
+                    <ul class="text-c3 dark:text-c5">
+                        <li><a href="#" class="footer-hover">Travel booking</a></li>
+                        <li><a href="#" class="footer-hover">Flight booking</a></li>
+                        <li><a href="#" class="footer-hover">Car booking</a></li>
+                        <li><a href="#" class="footer-hover">Fivestar Hotel</a></li>
+                        <li><a href="#" class="footer-hover">Traveling</a></li>
+                    </ul>
+                </div>
+                <div
+                    class="sm:w-[25%] w-[100%] pl-0 sm:pl-32 border-b-[2px] border-white sm:border-0 py-3">
+                    <h3 class="text-[24px]">Support</h3>
+                    <ul class="text-c3 dark:text-c5">
+                        <li><a href="#" class="footer-hover">Account</a></li>
+                        <li><a href="#" class="footer-hover">Legal</a></li>
+                        <li><a href="#" class="footer-hover">Contact</a></li>
+                        <li><a href="#" class="footer-hover">Terms & Condition</a></li>
+                        <li><a href="#" class="footer-hover">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="sm:w-[25%] w-[100%] pl-0 sm:pl-32 py-3">
+                    <h3 class="text-[24px]">Business</h3>
+                    <ul class="text-c3 dark:text-c5">
+                        <li><a href="#" class="footer-hover">Success</a></li>
+                        <li><a href="#" class="footer-hover">About Locato</a></li>
+                        <li><a href="#" class="footer-hover">Blog</a></li>
+                        <li><a href="#" class="footer-hover">Information</a></li>
+                        <li><a href="#" class="footer-hover">Travel Guide</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        slidesPerGroup: 1,
+        loop: true,
+        loopFillGroupWithBlank: true,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        breakpoints: {
+            640: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+            },
+            768: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+            },
+            1024: {
+                slidesPerView: 4,
+                spaceBetween: 40,
+            }
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+
+    const toggleSwitch = document.querySelector(
+        '.toggle-switch input[type="checkbox"]'
+    );
+    const currentTheme = localStorage.getItem("theme");
+    if (currentTheme) {
+        document.documentElement.setAttribute("class", currentTheme);
+        if (currentTheme === "dark") {
+            toggleSwitch.checked = true;
+        }
+    }
+    function switchTheme(e) {
+        if (e.target.checked) {
+            document.documentElement.setAttribute("class", "dark");
+            localStorage.setItem("theme", "dark");
+        } else {
+            document.documentElement.setAttribute("class", "light");
+            localStorage.setItem("theme", "light");
+        }
+    }
+    toggleSwitch.addEventListener("change", switchTheme);
+
+    AOS.init({
+        delay: 500,
+        duration: 400
+    });
+</script>
