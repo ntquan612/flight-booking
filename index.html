@@ -27,11 +27,12 @@
 </head>
 <!-- npx tailwindcss -i css/tailwind.css -o build/tailwind.css --watch -->
 
-<body class="bg-[#eee] dark:bg-[#141416]">
+<body class="bg-[#eee] dark:bg-[#141416] overflow-x-hidden">
+
     <label for="toggle" class="cursor-pointer toggle-switch">
         <input type="checkbox" id="toggle" class="darkmode-input hidden">
         <div
-            class="w-[100px] h-[40px] border border-[#ccc] rounded-full fixed right-5 bottom-5 z-50 p-[5px] transition-colors">
+            class="w-[100px] h-[40px] border border-[#ccc] rounded-full fixed right-20 bottom-5 z-50 p-[5px] transition-colors">
             <div class="w-7 h-7 bg-[#ccc] rounded-full transition-transform darkmode-spinner">
             </div>
         </div>
@@ -70,15 +71,14 @@
                         <li class="hover:text-black">
                             <a href="#" class="block py-2 px-4 hover:bg-gray-100 ">Dashboard</a>
                         </li>
-                        <li>
+                        <li class="hover:text-black">
                             <a href="#" class="block py-2 px-4 hover:bg-gray-100">Settings</a>
                         </li>
-                        <li>
+                        <li class="hover:text-black">
                             <a href="#" class="block py-2 px-4 hover:bg-gray-100">Earnings</a>
                         </li>
-                        <li>
-                            <a href="#" class="block py-2 px-4 hover:bg-gray-100">Sign
-                                out</a>
+                        <li class="hover:text-black">
+                            <a href="#" class="block py-2 px-4 hover:bg-gray-100">Sign out</a>
                         </li>
                     </ul>
                 </div>
@@ -107,11 +107,11 @@
     <!-- banner -->
 
     <!-- search -->
-    <div class="max-w-[1170px] h-auto sm:m-auto bg-c9 dark:bg-c2 rounded-lg top-[-155px] sm:top-[-100px] mx-3 relative shadow-lg shadow-gray-700 dark:shadow-gray-700 border-none"
+    <div class="max-w-[1170px] h-auto lg:m-auto bg-c9 dark:bg-c2 rounded-lg top-[-155px] lg:top-[-100px] mx-3 relative shadow-lg shadow-gray-700 dark:shadow-gray-700 border-none"
         data-aos="fade-down">
-        <div class="p-0 sm:p-2">
+        <div class="p-0 lg:p-2">
             <div class="mb-4 border-b border-gray-200 text-xl">
-                <ul class="flex flex-wrap -mb-px font-medium text-center sm:text-2xl" id="myTab"
+                <ul class="flex flex-wrap -mb-px font-medium text-center lg:text-2xl" id="myTab"
                     data-tabs-toggle="#myTabContent" role="tablist">
                     <li class="mr-2" role="presentation">
                         <button
@@ -140,30 +140,30 @@
                 <div class="p-4 rounded-lg" id="profile" role="tabpanel"
                     aria-labelledby="profile-tab">
                     <div class="flex items-center justify-between flex-wrap">
-                        <div class="flex items-center justify-between flex-wrap">
+                        <div class="flex items-center justify-between flex-wrap w-[100%] lg:w-auto">
                             <div
-                                class="bg-[#F4F5F7] dark:bg-[#4A4E54] text-c1 dark:text-c9 rounded px-3 py-2 h-[70px] w-[100%] sm:w-[260px] my-1 sm:mr-3">
+                                class="bg-[#F4F5F7] dark:bg-[#4A4E54] text-c1 dark:text-c9 rounded px-3 py-2 h-[70px] w-[100%] lg:w-[260px] my-1 lg:mr-3">
                                 <h3 class="font-bold text-[18px]">Leaving From</h3>
                                 <span class="text-[16px] text-c4">Where are you from ?</span>
                             </div>
                             <div
-                                class="bg-[#F4F5F7] dark:bg-[#4A4E54] text-c1 dark:text-c9 rounded px-3 py-2 h-[70px] w-[100%] sm:w-[200px] my-1 sm:mr-3">
+                                class="bg-[#F4F5F7] dark:bg-[#4A4E54] text-c1 dark:text-c9 rounded px-3 py-2 h-[70px] w-[100%] lg:w-[200px] my-1 lg:mr-3">
                                 <h3 class="font-bold text-[18px]">Going to</h3>
                                 <span class="text-[16px] text-c4">Going to</span>
                             </div>
                             <div
-                                class="bg-[#F4F5F7] dark:bg-[#4A4E54] text-c1 dark:text-c9 rounded px-3 py-2 h-[70px] w-[49%] sm:w-[200px] my-1 sm:mr-3">
+                                class="bg-[#F4F5F7] dark:bg-[#4A4E54] text-c1 dark:text-c9 rounded px-3 py-2 h-[70px] w-[49%] lg:w-[200px] my-1 lg:mr-3">
                                 <h3 class="font-bold text-[18px]">Check in</h3>
                                 <span class="text-[16px] text-c4">Add date</span>
                             </div>
                             <div
-                                class="bg-[#F4F5F7] dark:bg-[#4A4E54] text-c1 dark:text-c9 rounded px-3 py-2 h-[70px] w-[49%] sm:w-[200px] my-1 sm:mr-3">
+                                class="bg-[#F4F5F7] dark:bg-[#4A4E54] text-c1 dark:text-c9 rounded px-3 py-2 h-[70px] w-[49%] lg:w-[200px] my-1 lg:mr-3">
                                 <h3 class="font-bold text-[18px]">Check out</h3>
                                 <span class="text-[16px] text-c4">Add date</span>
                             </div>
                         </div>
                         <button
-                            class="bg-blue3B7 hover:bg-blue-700 text-white rounded-lg px-3 py-2 h-[70px] w-[100%] sm:w-[152px] my-1 font-bold">
+                            class="bg-blue3B7 hover:bg-blue-700 text-white rounded-lg px-3 py-2 h-[70px] w-[100%] lg:w-[152px] my-1 font-bold">
                             Search
                         </button>
                     </div>
@@ -197,10 +197,8 @@
         <!-- Search a best place in the world -->
         <section class="text-c1 dark:text-c9 mb-[100px]">
             <div class="text-center m-auto">
-                <h2 class=" font-bold text-[42px] sm:text-[48px] max-w-[600px] m-auto"
-                    data-aos="fade-down">Search a best
-                    place
-                    in the world
+                <h2 class=" font-bold text-[42px] sm:text-[48px] m-auto" data-aos="fade-down">Search
+                    a best place in the world
                 </h2>
                 <p class="text-c4 text-[14px] sm:text-[16px] max-w-[600px] m-auto px-5"
                     data-aos="fade-down">
@@ -208,7 +206,7 @@
                     the details you need to check in and ease your trips in advance
                 </p>
             </div>
-            <div class="grid-layout hidden-scroll sm:flex sm:flex-wrap mt-10 gap-y-6 mx-3 sm:mx-0">
+            <div class="grid-layout hidden-scroll lg:flex lg:flex-wrap mt-10 gap-y-6 mx-3 lg:mx-0">
                 <div class="box-border border border-c3 w-[270px] h-[205px] pl-8 pt-8 rounded-lg scroll-snap-start"
                     data-aos="fade-right">
                     <div class="w-[70px] h-[70px]">
@@ -415,8 +413,9 @@
                     The most searched for cities on TripGuide
                 </p>
             </div>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-y-11 gap-x-8 py-10">
-                <div class="max-w-[560px] bg-c9 dark:bg-c1 rounded-lg flex flex-wrap items-center justify-start p-5 shadow-lg hover:shadow-gray-500 hover:scale-[1.02] transition-all border border-gray-700"
+            <div class="flex flex-wrap items-center justify-center">
+
+                <div class="w-[560px] bg-c9 dark:bg-c1 rounded-lg flex flex-wrap items-center justify-start p-5 shadow-lg hover:shadow-gray-500 hover:scale-[1.02] transition-all border border-gray-700 ml-5 mb-5"
                     data-aos="fade-up">
                     <div class="sm:w-[160px] w-[100%] h-[168px]">
                         <img src="https://content.r9cdn.net/rimg/dimg/f6/a7/9b99082b-city-29645-166c0b3c28a.jpg?crop=true&width=1366&height=768&xhint=2567&yhint=1862"
@@ -435,13 +434,13 @@
                             Now</button>
                     </div>
                 </div>
-                <div class="max-w-[560px] bg-c9 dark:bg-c1 rounded-lg flex flex-wrap items-center justify-start p-5 shadow-lg hover:shadow-gray-500 hover:scale-[1.02] transition-all  border border-gray-700"
+                <div class="w-[560px] bg-c9 dark:bg-c1 rounded-lg flex flex-wrap items-center justify-start p-5 shadow-lg hover:shadow-gray-500 hover:scale-[1.02] transition-all border border-gray-700 ml-5 mb-5"
                     data-aos="fade-up">
                     <div class="sm:w-[160px] w-[100%] h-[168px]">
                         <img src="https://content.r9cdn.net/rimg/dimg/f6/a7/9b99082b-city-29645-166c0b3c28a.jpg?crop=true&width=1366&height=768&xhint=2567&yhint=1862"
                             alt="" class="w-full h-full object-cover">
                     </div>
-                    <div class="leading-10 m-auto text-center ">
+                    <div class="leading-10 m-auto text-center">
                         <h3 class="text-24px font-bold sm:text-left">Flight to Manila
                         </h3>
                         <p class="text-c5 sm:text-left"><i class="fas fa-star text-yellow-400"></i>
@@ -454,13 +453,13 @@
                             Now</button>
                     </div>
                 </div>
-                <div class="max-w-[560px] bg-c9 dark:bg-c1 rounded-lg flex flex-wrap items-center justify-start p-5 shadow-lg hover:shadow-gray-500 hover:scale-[1.02] transition-all  border border-gray-700"
+                <div class="w-[560px] bg-c9 dark:bg-c1 rounded-lg flex flex-wrap items-center justify-start p-5 shadow-lg hover:shadow-gray-500 hover:scale-[1.02] transition-all border border-gray-700 ml-5 mb-5"
                     data-aos="fade-up">
                     <div class="sm:w-[160px] w-[100%] h-[168px]">
                         <img src="https://content.r9cdn.net/rimg/dimg/f6/a7/9b99082b-city-29645-166c0b3c28a.jpg?crop=true&width=1366&height=768&xhint=2567&yhint=1862"
                             alt="" class="w-full h-full object-cover">
                     </div>
-                    <div class="leading-10 m-auto text-center ">
+                    <div class="leading-10 m-auto text-center">
                         <h3 class="text-24px font-bold sm:text-left">Flight to Manila
                         </h3>
                         <p class="text-c5 sm:text-left"><i class="fas fa-star text-yellow-400"></i>
@@ -473,13 +472,13 @@
                             Now</button>
                     </div>
                 </div>
-                <div class="max-w-[560px] bg-c9 dark:bg-c1 rounded-lg flex flex-wrap items-center justify-start p-5 shadow-lg hover:shadow-gray-500 hover:scale-[1.02] transition-all  border border-gray-700"
+                <div class="w-[560px] bg-c9 dark:bg-c1 rounded-lg flex flex-wrap items-center justify-start p-5 shadow-lg hover:shadow-gray-500 hover:scale-[1.02] transition-all border border-gray-700 ml-5 mb-5"
                     data-aos="fade-up">
                     <div class="sm:w-[160px] w-[100%] h-[168px]">
                         <img src="https://content.r9cdn.net/rimg/dimg/f6/a7/9b99082b-city-29645-166c0b3c28a.jpg?crop=true&width=1366&height=768&xhint=2567&yhint=1862"
                             alt="" class="w-full h-full object-cover">
                     </div>
-                    <div class="leading-10 m-auto text-center ">
+                    <div class="leading-10 m-auto text-center">
                         <h3 class="text-24px font-bold sm:text-left">Flight to Manila
                         </h3>
                         <p class="text-c5 sm:text-left"><i class="fas fa-star text-yellow-400"></i>
@@ -492,13 +491,13 @@
                             Now</button>
                     </div>
                 </div>
-                <div class="max-w-[560px] bg-c9 dark:bg-c1 rounded-lg flex flex-wrap items-center justify-start p-5 shadow-lg hover:shadow-gray-500 hover:scale-[1.02] transition-all border border-gray-700"
+                <div class="w-[560px] bg-c9 dark:bg-c1 rounded-lg flex flex-wrap items-center justify-start p-5 shadow-lg hover:shadow-gray-500 hover:scale-[1.02] transition-all border border-gray-700 ml-5 mb-5"
                     data-aos="fade-up">
                     <div class="sm:w-[160px] w-[100%] h-[168px]">
                         <img src="https://content.r9cdn.net/rimg/dimg/f6/a7/9b99082b-city-29645-166c0b3c28a.jpg?crop=true&width=1366&height=768&xhint=2567&yhint=1862"
                             alt="" class="w-full h-full object-cover">
                     </div>
-                    <div class="leading-10 m-auto text-center ">
+                    <div class="leading-10 m-auto text-center">
                         <h3 class="text-24px font-bold sm:text-left">Flight to Manila
                         </h3>
                         <p class="text-c5 sm:text-left"><i class="fas fa-star text-yellow-400"></i>
@@ -511,13 +510,13 @@
                             Now</button>
                     </div>
                 </div>
-                <div class="max-w-[560px] bg-c9 dark:bg-c1 rounded-lg flex flex-wrap items-center justify-start p-5 shadow-lg hover:shadow-gray-500 hover:scale-[1.02] transition-all border border-gray-700"
+                <div class="w-[560px] bg-c9 dark:bg-c1 rounded-lg flex flex-wrap items-center justify-start p-5 shadow-lg hover:shadow-gray-500 hover:scale-[1.02] transition-all border border-gray-700 ml-5 mb-5"
                     data-aos="fade-up">
                     <div class="sm:w-[160px] w-[100%] h-[168px]">
                         <img src="https://content.r9cdn.net/rimg/dimg/f6/a7/9b99082b-city-29645-166c0b3c28a.jpg?crop=true&width=1366&height=768&xhint=2567&yhint=1862"
                             alt="" class="w-full h-full object-cover">
                     </div>
-                    <div class="leading-10 m-auto text-center ">
+                    <div class="leading-10 m-auto text-center">
                         <h3 class="text-24px font-bold sm:text-left">Flight to Manila
                         </h3>
                         <p class="text-c5 sm:text-left"><i class="fas fa-star text-yellow-400"></i>
@@ -795,7 +794,8 @@
             class="bg-blue3B7 rounded-lg max-w-[1170px] text-white p-5 flex flex-wrap items-center justify-around">
             <div class="max-w-[371px]">
                 <h1 class="font-bold text-[20px] sm:text-[40px]">Get our pro offers</h1>
-                <p class="py-5 text-[12px] sm:text-[16px]">Create a visual identity for your
+                <p class="py-5 text-[12px] sm:text-[16px] ">Create a visual identity
+                    for your
                     company, and an overall brand
                 </p>
             </div>
@@ -812,17 +812,16 @@
     <footer class="bg-[#F4F5F6] dark:bg-c2 text-c1 dark:text-c9">
         <div class="max-w-[1210px] h-auto m-auto pt-16 sm:p-0">
             <div class="flex flex-wrap items-start justify-between p-10">
-                <div class="sm:w-[25%] w-[100%] border-b-[2px] border-white sm:border-[0px] py-3 ">
-                    <a href="#" class=" text-2xl flex items-center">
-                        <img src="./images/logo.png" alt="" class="w-14 h-10"> TripGuide
+                <div class="sm:w-[25%] w-[100%] border-b-[2px] border-white sm:border-[0px] py-3">
+                    <a href="#" class="text-2xl flex items-center">
+                        <span class="text-[20px]">TripGuide</span>
                     </a>
-                    <p class="max-w-[254px] my-5 text-c3 dark:text-c5">This is the team that
-                        specializes in
-                        making sure in the find it a your interior looks cool</p>
+                    <p class="w-[90%] my-5 text-c3 dark:text-c5">
+                        This is the team that specializes in making sure in the find it a your
+                        interior looks cool</p>
                 </div>
-                <div
-                    class="sm:w-[25%] w-[100%] pl-0 sm:pl-32 border-b-[2px] border-white sm:border-0 py-3">
-                    <h3 class="text-[24px]">Services</h3>
+                <div class="sm:w-[25%] w-[100%] border-b-[2px] border-white sm:border-0 py-3">
+                    <h3 class="text-[20px]">Services</h3>
                     <ul class="text-c3 dark:text-c5">
                         <li><a href="#" class="footer-hover">Travel booking</a></li>
                         <li><a href="#" class="footer-hover">Flight booking</a></li>
@@ -831,9 +830,8 @@
                         <li><a href="#" class="footer-hover">Traveling</a></li>
                     </ul>
                 </div>
-                <div
-                    class="sm:w-[25%] w-[100%] pl-0 sm:pl-32 border-b-[2px] border-white sm:border-0 py-3">
-                    <h3 class="text-[24px]">Support</h3>
+                <div class="sm:w-[25%] w-[100%] pl-0 border-b-[2px] border-white sm:border-0 py-3">
+                    <h3 class="text-[20px]">Support</h3>
                     <ul class="text-c3 dark:text-c5">
                         <li><a href="#" class="footer-hover">Account</a></li>
                         <li><a href="#" class="footer-hover">Legal</a></li>
@@ -842,8 +840,8 @@
                         <li><a href="#" class="footer-hover">Privacy Policy</a></li>
                     </ul>
                 </div>
-                <div class="sm:w-[25%] w-[100%] pl-0 sm:pl-32 py-3">
-                    <h3 class="text-[24px]">Business</h3>
+                <div class="sm:w-[25%] w-[100%] pl-0 py-3">
+                    <h3 class="text-[20px]">Business</h3>
                     <ul class="text-c3 dark:text-c5">
                         <li><a href="#" class="footer-hover">Success</a></li>
                         <li><a href="#" class="footer-hover">About Locato</a></li>
